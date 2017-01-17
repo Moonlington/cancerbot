@@ -51,10 +51,9 @@ class Admin:
     @checks.is_owner()
     @commands.command(name='update', hidden=True)
     async def update(self):
-        subprocess.Popen('sudo git pull', shell=True, executable='/bin/bash')
-        update = await self.bot.say('updating')
+        subprocess.Popen('sudo git pull', shell=True, executable='/bin/bash)
+        await self.bot.say(update, 'updating')
         os.execl(sys.executable, sys.executable, * sys.argv)
-        await self.bot.edit_message(update, 'updated')
         
 def setup(bot):
     bot.add_cog(Admin(bot))
