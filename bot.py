@@ -20,7 +20,7 @@ log.setLevel(logging.INFO)
 handler = logging.FileHandler(filename='bot.log', encoding='utf-8', mode='w')
 log.addHandler(handler)
 
-bot = commands.Bot(command_prefix=['pussymagnet ', '!!'])
+bot = commands.Bot(command_prefix=['cancerbot ', '!!'])
 
 @bot.event
 async def on_ready():
