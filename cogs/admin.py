@@ -23,7 +23,7 @@ class Admin:
         else:
             await self.bot.say('\N{OK HAND SIGN}')
 
-    @checks.is_owner() 
+    @checks.is_owner()
     @commands.command(hidden=True)
     async def unload(self, *, module : str):
         """Unloads a module."""
@@ -35,8 +35,8 @@ class Admin:
         else:
             await self.bot.say('\N{OK HAND SIGN}')
 
-    @commands.command(name='reload', hidden=True)
     @checks.is_owner()
+    @commands.command(name='reload', hidden=True)
     async def _reload(self, *, module : str):
         """Reloads a module."""
         try:
@@ -48,11 +48,13 @@ class Admin:
         else:
             await self.bot.say('\N{OK HAND SIGN}')
 
-    @checks.is_owner() 
+    @checks.is_owner()
     @commands.command(name='update', hidden=True)
     async def update(self):
         subprocess.Popen('sudo git pull', shell=True, executable='/bin/bash')
+        update = await self.bot.say('updating')
         os.execl(sys.executable, sys.executable, * sys.argv)
-
+        await self.bot.edit_message(update, 'updated')
+        
 def setup(bot):
     bot.add_cog(Admin(bot))
