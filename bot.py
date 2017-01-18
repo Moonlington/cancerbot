@@ -9,8 +9,9 @@ import traceback
 import sys
 
 initial_extensions = [
-    'cogs.fun',
+    'cogs.admin',
     'cogs.debug',
+    'cogs.fun',
 ]
 
 discord_logger = logging.getLogger('discord')
